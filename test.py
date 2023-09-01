@@ -38,7 +38,10 @@ f=open("/content/DD2/PredictionMatrix.txt", "w")
 f.write(str(outputs))
 f.close()
 
-print(f"Imprimindo matriz: {str(outputs)} /fim)
+#print(f"Imprimindo matriz: {str(outputs)} /fim)
+print("Imprimindo...")
+print(str(outputs))
+print(" ...Fim")
 #matplotlib problem on ubuntu terminal fix
 #matplotlib.use('TkAgg')   
 
