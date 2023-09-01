@@ -37,6 +37,8 @@ outputs = predict(model, inputs)
 f=open("/content/DD2/PredictionMatrix.txt", "w")
 f.write(str(outputs))
 f.close()
+
+print(str(outputs))
 #matplotlib problem on ubuntu terminal fix
 #matplotlib.use('TkAgg')   
 
