@@ -45,11 +45,11 @@ output_filename3 = '/content/DD2/output_matrixVF3.txt'
 np.savetxt(output_filename3, outputs.flatten(), fmt='%f')
 #np.savetxt(output_filename, str(outputs), fmt='%f')
 
-output_folder = '/content/DD2/Medidas/'
+output_folder = './DD2/Medidas/'
 
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 for i, output_layer in enumerate(outputs):
-    output_filename7 = os.path.join(/content/DD2/Medidas/, f'output_layer_{i}.txt')
+    output_filename7 = os.path.join(output_folder, f'output_layer_{i}.txt')
     np.savetxt(output_filename7, output_layer.flatten(), fmt='%f')
     print(f"Camada de saída {i} salva no arquivo '{output_filename7}'")
 
