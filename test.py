@@ -58,7 +58,7 @@ for i, output_layer in enumerate(outputs):
     print(f"Camada de saída {i} salva no arquivo '{output_filename7}'")
 
 
-print(f"Matriz de saída salva no arquivo '{output_filename}'")
+print(f"Matriz de saída salva no arquivo '{output_filename7}'")
 
 print("... .end. ...")
 #f=open("/content/DD2/PredictionMatrix.txt", "w")
