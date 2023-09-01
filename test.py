@@ -53,6 +53,8 @@ for i in range(outputs.shape[-1]):
     print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
 print('...Ending loop')
 
+np.savetxt('/content/DD2/Medidas/Test.txt', str(output_layer), fmt='%f')
+print('...Test.txt')
 
 
 
