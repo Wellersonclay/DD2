@@ -40,7 +40,9 @@ outputs = predict(model, inputs)
 #np.savetxt(output_filename, outputs.flatten(), fmt='%f')
 print("... .begin. ...")
 output_filename = '/content/DD2/output_matrixVF.txt'
-np.savetxt(output_filename, outputs.flatten(), fmt='%f')
+output_filename3 = '/content/DD2/output_matrixVF3.txt'
+np.savetxt(output_filename3, outputs.flatten(), fmt='%f')
+np.savetxt(output_filename, outputs, fmt='%f')
 
 print(f"Matriz de saída salva no arquivo '{output_filename}'")
 
