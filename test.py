@@ -36,6 +36,7 @@ print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[
 outputs = predict(model, inputs)
 
 # Loop para salvar cada "camada" da matriz em um arquivo separado
+output_folder = '/content/DD2/Medidas/'
 for i, output_layer in enumerate(outputs):
     output_filename7 = os.path.join(output_folder, f'output_layer_{i}.txt')
     np.savetxt(output_filename7, output_layer.flatten(), fmt='%f')
@@ -46,13 +47,14 @@ print('...Ending loop')
 #output_filename = 'output_matrix.txt'
 #np.savetxt(output_filename, outputs.flatten(), fmt='%f')
 print("... .begin. ...")
+
 #output_filename = '/content/DD2/output_matrixVF.txt'
 output_filename7 = '/content/DD2/'
 output_filename3 = '/content/DD2/output_matrixVF3.txt'
 np.savetxt(output_filename3, outputs.flatten(), fmt='%f')
 #np.savetxt(output_filename, str(outputs), fmt='%f')
 
-output_folder = '/content/DD2/Medidas/'
+
 
 print('Loading loop...')
 
