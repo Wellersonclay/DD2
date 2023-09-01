@@ -44,8 +44,10 @@ outputs = predict(model, inputs)
 #print('...Ending loop')
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 # Loop para salvar cada "camada" da matriz em um arquivo separado
+
 output_folder = '/content/DD2/Medidas/'
-for i, output_layer in enumerate(outputs.transpose(3, 0, 1, 2)):  # Transpose para iterar ao longo da dimensão correta
+for i in range(outputs.shape[-1]):
+    output_layer = outputs[:, :, :, i]
     output_filename = os.path.join(output_folder, f'output_layer_{i}.txt')
     np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
     print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
