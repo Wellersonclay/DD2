@@ -2,6 +2,7 @@ import os
 import glob
 import argparse
 import matplotlib
+import numpy as np
 
 # Keras / TensorFlow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '5'
