@@ -34,9 +34,15 @@ print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[
 # Compute results
 outputs = predict(model, inputs)
 
-f=open("/content/DD2/PredictionMatrix.txt", "w")
-f.write(str(outputs))
-f.close()
+# Salvar a matriz em um arquivo de texto
+output_filename = 'output_matrix.txt'
+np.savetxt(output_filename, outputs.flatten(), fmt='%f')
+
+print(f"Matriz de saída salva no arquivo '{output_filename}'")
+
+#f=open("/content/DD2/PredictionMatrix.txt", "w")
+#f.write(str(outputs))
+#f.close()
 
 #print(f"Imprimindo matriz: {str(outputs)} /fim)
 print("Imprimindo...")
