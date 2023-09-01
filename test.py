@@ -37,12 +37,13 @@ outputs = predict(model, inputs)
 # Salvar a matriz em um arquivo de texto
 #output_filename = 'output_matrix.txt'
 #np.savetxt(output_filename, outputs.flatten(), fmt='%f')
-
+print("... .begin. ...")
 output_filename = '/content/DD2/output_matrix.txt'
 np.savetxt(output_filename, outputs.flatten(), fmt='%f')
 
 print(f"Matriz de saída salva no arquivo '{output_filename}'")
 
+print("... .end. ...")
 #f=open("/content/DD2/PredictionMatrix.txt", "w")
 #f.write(str(outputs))
 #f.close()
