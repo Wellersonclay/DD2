@@ -35,6 +35,8 @@ print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[
 # Compute results
 outputs = predict(model, inputs)
 
+imagempadrao(inputs)
+
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 #output_folder = '/content/DD2/Medidas/'
 #for i, output_layer in enumerate(outputs):
