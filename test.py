@@ -35,7 +35,7 @@ print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[
 # Compute results
 outputs = predict(model, inputs)
 
-imagempadrao(inputs)
+outputs2 = imagempadrao(inputs)
 
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 #output_folder = '/content/DD2/Medidas/'
@@ -54,7 +54,12 @@ for i in range(outputs.shape[-1]):
     np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
     print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
 print('...Ending loop')
-
+for i in range(outputs2.shape[-1]):
+    output_layer = outputs2[:, :, :, i]
+    output_filename = os.path.join(output_folder, f'output_layer_Imagem_Original{i}.txt')
+    np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
+    print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
+print('...Ending loop2')
 # save point np.savetxt('/content/DD2/Medidas/Test.txt', str(output_layer), fmt='%f')
 #print('...Test.txt')
 
@@ -66,18 +71,18 @@ print('...Ending loop')
 print("... .begin. ...")
 
 #output_filename = '/content/DD2/output_matrixVF.txt'
-output_filename7 = '/content/DD2/'
-output_filename3 = '/content/DD2/output_matrixVF3.txt'
-np.savetxt(output_filename3, outputs.flatten(), fmt='%f')
+#output_filename7 = '/content/DD2/'
+#output_filename3 = '/content/DD2/output_matrixVF3.txt'
+#np.savetxt(output_filename3, outputs.flatten(), fmt='%f')
 #np.savetxt(output_filename, str(outputs), fmt='%f')
 
 
 
-print('Loading loop...')
+#print('Loading loop...')
 
-print(f"Matriz de saída salva no arquivo '{output_filename7}'")
+#print(f"Matriz de saída salva no arquivo '{output_filename7}'")
 
-print("... .end. ...")
+#print("... .end. ...")
 #f=open("/content/DD2/PredictionMatrix.txt", "w")
 #f.write(str(outputs))
 #f.close()
@@ -85,6 +90,8 @@ print("... .end. ...")
 #print(f"Imprimindo matriz: {str(outputs)} /fim)
 print("Imprimindo...")
 print(str(outputs))
+print("-----------------------------")
+print(str(outputs2))
 print(" ...Fim")
 #matplotlib problem on ubuntu terminal fix
 #matplotlib.use('TkAgg')   
