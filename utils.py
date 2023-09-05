@@ -22,7 +22,9 @@ def imagempadrao(images, minDepth=10, maxDepth=1000, batch_size=2):
     # Compute predictions
     predictions2 = images
     # Put in expected range
-    return predictions2
+    return np.clip(DepthNorm(predictions2, maxDepth=maxDepth), minDepth, maxDepth) / maxDepth
+
+
 
 #Inserido
 
