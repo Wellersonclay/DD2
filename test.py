@@ -93,7 +93,7 @@ print("... .begin. ...")
 
 #print(f"Imprimindo matriz: {str(outputs)} /fim)
 print("Imprimindo...")
-print(str(outputs))
+#print(str(outputs))
 print("-----------------------------")
 print(str(outputs2))
 print(" ...Fim")
