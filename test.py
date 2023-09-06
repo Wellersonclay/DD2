@@ -32,10 +32,14 @@ print('\nModel loaded ({0}).'.format(args.model))
 inputs = load_images( glob.glob(args.input) )
 print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[1:]))
 
-# Compute results
-outputs = predict(model, inputs)
+# Input images 2
+inputs2 = load_images( glob.glob(args.input) )
+print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[1:]))
 
-outputs2 = imagempadrao(inputs)
+# Compute results
+#outputs = predict(model, inputs)
+
+outputs2 = imagempadrao(inputs2)
 
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 #output_folder = '/content/DD2/Medidas/'
@@ -48,12 +52,12 @@ outputs2 = imagempadrao(inputs)
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 
 output_folder = '/content/DD2/Medidas/'
-for i in range(outputs.shape[-1]):
-    output_layer = outputs[:, :, :, i]
-    output_filename = os.path.join(output_folder, f'output_layer_{i}.txt')
-    np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
-    print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
-print('...Ending loop')
+#for i in range(outputs.shape[-1]):
+#    output_layer = outputs[:, :, :, i]
+#    output_filename = os.path.join(output_folder, f'output_layer_{i}.txt')
+#    np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
+#    print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
+#print('...Ending loop')
 for i in range(outputs2.shape[-1]):
     output_layer = outputs2[:, :, :, i]
     output_filename = os.path.join(output_folder, f'output_layer_Imagem_Original{i}.txt')
