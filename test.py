@@ -24,81 +24,81 @@ custom_objects = {'BilinearUpSampling2D': BilinearUpSampling2D, 'depth_loss_func
 print('Loading model...')
 
 # Load model into GPU / CPU
-#model = load_model(args.model, custom_objects=custom_objects, compile=False)
+model = load_model(args.model, custom_objects=custom_objects, compile=False)
 
-#print('\nModel loaded ({0}).'.format(args.model))
+print('\nModel loaded ({0}).'.format(args.model))
 
 # Input images
 inputs = load_images( glob.glob(args.input) )
 print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[1:]))
 
 # Input images 2
-inputs2 = load_images( glob.glob(args.input) )
-print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[1:]))
+#inputs2 = load_images( glob.glob(args.input) )
+#print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[1:]))
 
 # Compute results
-#outputs = predict(model, inputs)
+outputs = predict(model, inputs)
 
-outputs2 = imagempadrao(inputs2)
+#outputs2 = imagempadrao(inputs2)
 
 # Loop para salvar cada "camada" da matriz em um arquivo separado
-#output_folder = '/content/DD2/Medidas/'
-#for i, output_layer in enumerate(outputs):
-#    output_filename7 = os.path.join(output_folder, f'output_layer_{i}.txt')
-#    np.savetxt(output_filename7, output_layer.flatten(), fmt='%f')
-#    print(f"Camada de saída {i} salva no arquivo '{output_filename7}'")
-#print('...Ending loop')
+output_folder = '/content/DD2/Medidas/'
+for i, output_layer in enumerate(outputs):
+    output_filename7 = os.path.join(output_folder, f'output_layer_{i}.txt')
+    np.savetxt(output_filename7, output_layer.flatten(), fmt='%f')
+    print(f"Camada de saída {i} salva no arquivo '{output_filename7}'")
+print('...Ending loop')
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 # Loop para salvar cada "camada" da matriz em um arquivo separado
 
 output_folder = '/content/DD2/Medidas/'
-#for i in range(outputs.shape[-1]):
-#    output_layer = outputs[:, :, :, i]
-#    output_filename = os.path.join(output_folder, f'output_layer_{i}.txt')
-#    np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
-#    print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
-#print('...Ending loop')
-for i in range(outputs2.shape[-1]):
-    output_layer = outputs2[:, :, :, i]
-    output_filename = os.path.join(output_folder, f'output_layer_Imagem_Original{i}.txt')
+for i in range(outputs.shape[-1]):
+    output_layer = outputs[:, :, :, i]
+    output_filename = os.path.join(output_folder, f'output_layer_{i}.txt')
     np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
     print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
-print('...Ending loop2')
+print('...Ending loop')
+#for i in range(outputs2.shape[-1]):
+#    output_layer = outputs2[:, :, :, i]
+#    output_filename = os.path.join(output_folder, f'output_layer_Imagem_Original{i}.txt')
+#    np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
+#    print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
+#print('...Ending loop2')
 # save point np.savetxt('/content/DD2/Medidas/Test.txt', str(output_layer), fmt='%f')
 #print('...Test.txt')
 
 
 
 # Salvar a matriz em um arquivo de texto
-#output_filename = 'output_matrix.txt'
-#np.savetxt(output_filename, outputs.flatten(), fmt='%f')
+output_filename = 'output_matrix.txt'
+np.savetxt(output_filename, outputs.flatten(), fmt='%f')
 print("... .begin. ...")
 
-#output_filename = '/content/DD2/output_matrixVF.txt'
-#output_filename7 = '/content/DD2/'
-#output_filename3 = '/content/DD2/output_matrixVF3.txt'
-#np.savetxt(output_filename3, outputs.flatten(), fmt='%f')
-#np.savetxt(output_filename, str(outputs), fmt='%f')
+output_filename = '/content/DD2/output_matrixVF.txt'
+output_filename7 = '/content/DD2/'
+output_filename3 = '/content/DD2/output_matrixVF3.txt'
+np.savetxt(output_filename3, outputs.flatten(), fmt='%f')
+np.savetxt(output_filename, str(outputs), fmt='%f')
 
 
 
-#print('Loading loop...')
+print('Loading loop...')
 
-#print(f"Matriz de saída salva no arquivo '{output_filename7}'")
+print(f"Matriz de saída salva no arquivo '{output_filename7}'")
 
-#print("... .end. ...")
-#f=open("/content/DD2/PredictionMatrix.txt", "w")
-#f.write(str(outputs))
-#f.close()
+print("... .end. ...")
+f=open("/content/DD2/PredictionMatrix.txt", "w")
+f.write(str(outputs))
+f.close()
 
 #print(f"Imprimindo matriz: {str(outputs)} /fim)
 print("Imprimindo...")
-#print(str(outputs))
+print(str(outputs))
 print("-----------------------------")
 print(str(outputs2))
 print(" ...Fim")
 #matplotlib problem on ubuntu terminal fix
-#matplotlib.use('TkAgg')   
+matplotlib.use('TkAgg')   
 
 # Display results
 viz = display_images(outputs.copy(), inputs.copy())
