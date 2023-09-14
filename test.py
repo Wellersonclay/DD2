@@ -9,7 +9,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '5'
 from keras.models import load_model
 from layers import BilinearUpSampling2D
 from tensorflow.keras.layers import Layer, InputSpec
-from utils import predict, load_images, display_images, imagempadrao
+from utils import predict, load_images, display_images
 from matplotlib import pyplot as plt
 
 # Argument Parser
@@ -34,9 +34,10 @@ print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[
 
 # Compute results
 outputs = predict(model, inputs)
-outputs2 = imagempadrao(inputs)
-#matplotlib problem on ubuntu terminal fix
+
 #matplotlib.use('TkAgg')   
+print('...Start loop')
+
 output_folder = '/content/DD2/Medidas/'
 for i in range(outputs.shape[-1]):
     output_layer = outputs[:, :, :, i]
