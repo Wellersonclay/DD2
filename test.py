@@ -39,11 +39,11 @@ outputs = predict(model, inputs)
 print('...Start loop')
 
 output_folder = '/content/DD2/Medidas/'
-for i in range(outputs.shape[-1]):
-    output_layer = outputs[:, :, :, i]
-    output_filename = os.path.join(output_folder, f'output_layer_{i}.txt')
-    np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
-    print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
+#for i in range(outputs.shape[-1]):
+#    output_layer = outputs[:, :, :, i]
+#    output_filename = os.path.join(output_folder, f'output_layer_{i}.txt')
+#    np.savetxt(output_filename, output_layer.flatten(), fmt='%f')
+#    print(f"Camada de saída {i} salva no arquivo '{output_filename}'")
 print('...Ending loop')
 
 # Display results
